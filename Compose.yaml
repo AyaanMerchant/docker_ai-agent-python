@@ -6,7 +6,7 @@ services:
       context: ./static  
     command: python -m http.server 8000
     ports:
-      - 8000:8000
+      - 4000:8000
     volumes:
       - ./static/src:/app
   backend:
@@ -16,12 +16,12 @@ services:
       context: ./backend  
     command: uvicorn main:app --host 0.0.0.0 --port 8000
     environment:
-      - PORT 8000
+      - PORT 3001
       - MY_PROJECT_OTHER=/"JBS Consulting"/
     env_file:
       - .env.sample
     ports:
-      - 3000:8000
+      - 3001:3001
     volumes:
       - ./backend/src:/app
     develop:
