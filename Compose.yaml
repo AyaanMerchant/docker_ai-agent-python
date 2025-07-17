@@ -32,4 +32,17 @@ services:
           path: ./backend/Dockerfile
         - action: restart
           path: ./backend/src
-          
+  database:
+    image: postgres:latest
+    environment:
+      - POSTGRES_USER=ai_agents
+      - POSTGRES_PASSWORD=db-password
+      - POSTGRES_DB=agent_db
+    ports:
+      - 5432:5432
+    volumes:
+      - dc_managed_db_volume:/var/lib/postgresql/data
+
+
+volumes:
+  dc_managed_db_volume: 
