@@ -10,7 +10,7 @@ async def lifespan(app: FastAPI):
     yield
 
 app = FastAPI(lifespan=lifespan)
-app.include_router(chat_router)
+app.include_router(chat_router, prefix="/api/chat")
 
 API_KEY = os.environ.get("API_KEY")
 My_Project = os.environ.get("MY_PROJECT") or "This is my project"

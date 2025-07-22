@@ -1,6 +1,7 @@
 # declare what image to use
 FROM python:latest
 
+RUN apt-get update && apt-get install -y curl
 #create python virtual environment
 #isolate python from system level python
 RUN python -m venv /opt/venv/
